@@ -11,3 +11,267 @@ body {
     min-height: 100vh;
     color: base.$light-black-text;
 }
+
+nav {
+    //Hide hamburgerikon
+    @media(min-width:601px) {
+        button.ham-icon {
+            display: none;
+        }
+    }
+    //Show hamburgerikon
+    @media(max-width:600px) {
+        button.ham-icon {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            z-index: 2; 
+        }
+
+        .ham-icon span {
+            display: block;
+            width: 35px; 
+            height: 2px; 
+            background-color: #000000;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .ham-icon span:nth-child(2) {
+            width: 35px; 
+        }
+        
+        .ham-icon:hover span {
+            background-color: #fff;
+        }
+        //Transformation from hamburger icon to X
+        .ham-icon.toggle span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 10px);
+            background-color: #c5c5c5;
+        }
+        
+        .ham-icon.toggle span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .ham-icon.toggle span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -11px);
+            background-color: #c5c5c5;
+        }
+
+        .ham-icon.toggle:hover span {
+            background-color: #fff;
+        }
+    }
+}
+
+nav #navLinks {
+    //Styling topnav links tablet/desktop
+    @media(min-width:601px) {
+        padding-top: 50px;
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: base.$light-black-text;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        a:hover {
+            color: rgb(59, 59, 59);
+            text-decoration: underline;
+        }
+    }
+    //Styling dropdown-menu mobile
+    @media(max-width:600px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: base.$black-opac92;
+        z-index: 1; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        transition: all 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 40px 0;
+        }
+
+        ul li a {
+            color: base.$dark-white-text;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        ul li a:hover {
+            color: base.$primary-white-text;
+            text-decoration: underline;
+        }
+    }
+}
+
+//A click on ham-icon adds class expand which reveals dropdown menu
+nav #navLinks.expanded {
+    max-height: 100vh;
+    }
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    h1.frontpage {
+        @include base.center-content(center);
+        font-size: clamp(42px, 9vw, 200px);
+        margin-top: 300px;
+    }
+
+    @media(max-width:600px) {
+        margin-top: 100px;
+    }
+}
+
+section {
+    @include base.section-style();
+}
+
+.first-section {
+    margin-bottom: 50px;
+
+    @media(max-width: 940px) {
+        margin-bottom: 0;
+
+        .img-section {
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+    }
+
+    .img-section picture {
+        background: linear-gradient(to top, #ffc987, #D8737F, #AB6C82, #685D79, #475C7A);
+        opacity: 90%;
+        padding: 25px;
+        border-radius: 15px;       
+    }
+}
+
+.second-section {
+    .hide-desktop {
+        display: none;
+    
+        @media(max-width: 940px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+    .hide-mobile {
+        display: none;
+    
+        @media(min-width: 940px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+    .img-section {
+        margin: 75px 50px 0 0;
+
+        @media(max-width: 940px) {
+            margin: 50px auto;
+        }
+    }
+    .text-section {
+        margin: 0 0 0 50px;
+
+        @media(max-width: 940px) {
+            margin: 0 auto;
+        }
+    }
+}
+
+.span-line {
+    @include base.center-content(none);
+    height: 1px;
+    background-color: #000000;
+    max-width: 1440px;
+}
+
+.span-line2 {
+    @extend .span-line;
+    margin: 100px auto;
+}
+
+.shapes-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    @media(max-width: 940px) {
+        margin-top: 200px;
+    }
+
+    .triangle {
+        @include base.geo-shapes(50px, 50px, base.$dusty-rose, 10px, 'triangle');
+    }
+
+    .circle {
+        @include base.geo-shapes(50px, 50px, base.$peachy-orange, 10px, 'circle');
+    }
+
+    .square {
+        @include base.geo-shapes(50px, 50px, base.$powder-blue, 10px, 'square');
+    }
+}
+
+footer {
+    padding: 50px 0;
+
+    p {
+        @include base.center-content(center);
+    }
+}
+
+@media (prefers-color-scheme:dark) {
+    body {
+        @include base.dark-bgcolor();
+        color: base.$dark-white-text;
+    }
+
+    nav #navlinks {
+        a { 
+            color: base.$dark-white-text;
+        }
+    }
+
+    .ham-icon span {
+        background-color: base.$dark-white-text;
+    }
+}

@@ -35,3 +35,106 @@ $powder-blue: #AEC6CF;
     @include shared-bg-styles;
 }
 
+// Mixin background style dark colour
+@mixin dark-bgcolor() {
+    background: linear-gradient(to bottom, $dark-peachy-orange, $dark-dusty-rose, $dark-soft-mauve, $dark-grayish-lavender, $dark-dusk-blue);
+    @include shared-bg-styles;
+}
+
+//Mixin center content
+@mixin center-content($textAlign) {
+    text-align: $textAlign;
+    width: 80%;
+    margin: 0 auto;
+}
+
+//Mixin for sections - responsive
+@mixin section-style() {
+    h1 {
+        font-size: 32px;
+        line-height: 44px;
+        margin: 100px 0 0 0;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 500;
+        margin: 10px 0;
+    }
+
+    p, 
+    li {
+        font-size: 16px;
+        line-height: 28px;
+        max-width: 400px;
+    }
+
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .text-section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+    
+    .img-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+    }
+
+    @media(max-width:940px) {
+        display: flex;
+        flex-direction: column;
+
+        .text-section,
+        .img-section {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        .img-section {
+            margin-bottom: 50px;
+        }
+    }
+    
+    .img-section img {
+        width: 99%;
+        max-width: 400px;
+    }
+}
+
+@mixin geo-shapes($width, $height, $bgcolor, $margin, $form) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    
+    margin: $margin;
+    
+    @if $form == 'circle' {
+      border-radius: 50%;
+      background-color: $bgcolor;
+    } @else if $form == 'square' {
+      border-radius: 0;
+      background-color: $bgcolor;
+    } @else if $form == 'triangle' {
+      width: 0;
+      height: 0;
+      border-left: $width / 2 solid transparent;
+      border-right: $width / 2 solid transparent;
+      border-bottom: $height solid $bgcolor;
+    }
+}
