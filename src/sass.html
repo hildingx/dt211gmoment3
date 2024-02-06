@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS - DT2011G - Moment 3</title>
+    <script src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.scss">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="navLinks">
+                <ul>
+                    <li><a href=index.html>Hem</a></li>
+                    <li><a href=sass.html>SASS</a></li>
+                    <li><a href=#>Animering</a></li>
+                    <li><a href=#>Diagram</a></li>
+                    <li><a href=#>Karta</a></li>
+                </ul>
+            </div>
+            <button class="ham-icon" onclick="toggleNavMenu()" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="first-section">
+            <div class="text-section">
+                <h1>
+                    Utvärdering
+                </h1>
+                <h2>
+                    Prisa gudarna! SASS är här.
+                </h2>
+                <p>
+                    Från att ha använt CSS med nästan 1000 rader kod i små projekt 
+                    där det på slutet varit otroligt tidskrävande att hitta rätt kodrad, till att kunna organisera och strukturera med partials och SASS-funktionaliteter. Himmelriket.
+                    <br>
+                    De fördelar jag spontat hittills lagt märke till:
+                </p>
+                <ul>
+                    <li><b>Partials</b> - Mycket bättre struktur i koden med uppdelad funktionalitet i flera filer.</li>
+                    <li><b>Variabler</b> - Kan lagra värden som färger, teckenstorlekar och återanvända dessa. Sedan är det enkelt att ändra centralt istället för att ändra varje värde i CSS-koden.</li>
+                    <li><b>Nesting</b> - Göra det möjligt att strukturera CSS-selektorer hierarkiskt inuti varandra så att koden blir mer läsbar och organiserad.</li>
+                    <li><b>Mixins</b> - Möjlighet till att återanvända hela kodstycken vilket ger en förbättrad DRY kod.</li>
+                    <li><b>Selektorsarv</b> med @extend vilket gör att man kan återanvända regler från en selektor.</li>
+                </ul>
+            </div>
+            <div class="img-section">
+                <picture>
+                    <source srcset="img/prtscn1.webp" type="image/webp">
+                    <img src="img/prtscn1.jpg" alt="Skärmdump av VS Code">
+                  </picture>
+            </div>
+        </section>
+        <span class="span-line"></span>
+        <section class="second-section">
+            <div class="img-section hide-mobile">
+                <img src="img/sass_pink.svg" alt="SASS-ikon">
+            </div>
+            <div class="text-section">
+                <h1>
+                    Baksidan
+                </h1>
+                <p>
+                    Det var, och är fortfarande, lite jobbigt att ändra sitt sätt att tänka. 
+                    Jag hamnar lätt i att skriva i en .scss fil och utnyttjar inte alla SASS-funktionalitetertill fullo. 
+                    Jag har ju lärt mig att skriva (halvdan) css-kod, men nu är det som att börja om från början i hur man ska tänka och strukturerar upp det.
+                    Men jag har ändå väntat på att få börja använda den här typen av hjälpmedel. 
+                </p>
+            </div>
+            <div class="img-section hide-desktop">
+                <img src="img/sass_pink.svg" alt="SASS-ikon">
+            </div>
+        </section>
+        <span class="span-line2"></span>
+    </main>
+    <footer>
+        <p>Alexander Hilding</p>
+    </footer>
+</body>
+</html>

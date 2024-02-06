@@ -1,0 +1,37 @@
+//Variabler, mixins osv
+//Färgkoder i variabler, styling på texter, textstorlekar osv.
+
+$primary-black-text: #000;
+$light-black-text: lighten($primary-black-text, 5%);
+
+$primary-white-text: #fff;
+$dark-white-text: darken($primary-white-text, 20%);
+
+$black-opac92: rgba($primary-black-text, 0.92);
+
+$peachy-orange: #ffc987;
+$dark-peachy-orange: #634e35;
+$dusty-rose: #D8737F;
+$dark-dusty-rose: #4d292e;
+$soft-mauve: #AB6C82;
+$dark-soft-mauve: #3b262d;
+$grayish-lavender: #685D79;
+$dark-grayish-lavender: #2a2631;
+$dusk-blue: #475C7A;
+$dark-dusk-blue: #161c25;
+
+$powder-blue: #AEC6CF;
+
+//Shared background style
+@mixin shared-bg-styles {
+    background-size: 100% auto; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+  }
+  
+// Mixin background style light colour
+@mixin bgcolor() {
+    background: linear-gradient(to bottom, $peachy-orange, $dusty-rose, $soft-mauve, $grayish-lavender, $dusk-blue);
+    @include shared-bg-styles;
+}
+

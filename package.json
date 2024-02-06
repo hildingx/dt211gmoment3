@@ -5,11 +5,13 @@
   "author": "Alexander Hilding",
   "license": "ISC",
   "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --open chrome",
     "build": "parcel build"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
     "parcel": "^2.11.0"
   }
 }

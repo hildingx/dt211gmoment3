@@ -1,0 +1,13 @@
+//Styling av element. 
+//Grid, flexbox och containers.
+
+@use 'base';
+
+body {
+    @include base.bgcolor();
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: base.$light-black-text;
+}
