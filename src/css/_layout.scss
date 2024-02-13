@@ -12,8 +12,8 @@ body {
     color: base.$light-black-text;
 }
 
-#bodyAnimation {
-    animation: bgTransition 3s linear infinite;
+#body-animation {
+    animation: bg-transition 3s linear infinite;
 }
 
 /* Stilar endast för Firefox */
@@ -23,6 +23,7 @@ body {
     }
 }
 
+//Darkmode
 @media (prefers-color-scheme:dark) {
     body {
         @include base.dark-bgcolor();
@@ -295,7 +296,7 @@ section {
     animation: change-color 2s linear;
 }
 
-.mainAnimation {
+.main-animation {
     @include base.center-content(center);
     max-width: 400px;
     margin-top: 100px;
@@ -310,14 +311,27 @@ section {
     }
 }
 
-.sassImg {
+.div-box {
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: rgba(207, 207, 207, 0.1);
+}
+
+.sass-img {
     width: 100px;
     transition: 1s;
 }
 
-.sassImg:hover {
+.sass-img:hover {
     width: 200px;
     filter: hue-rotate(70deg) brightness(150%);
+}
+
+#walking-cat {
+    position: absolute;
+    animation: walkDown 5s infinite;
+    animation-timing-function: linear;
 }
 
 footer {

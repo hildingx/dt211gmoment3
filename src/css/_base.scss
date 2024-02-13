@@ -78,7 +78,7 @@ $dark-dusk-blue: #161c25;
     @include shared-bg-styles;
 }
 
-@keyframes bgTransition {
+@keyframes bg-transition {
     10% {
         --color-1: #e7b67a;
     }
@@ -214,5 +214,17 @@ $dark-dusk-blue: #161c25;
 @keyframes change-color {
     50% {
         border-bottom: 50px solid $powder-blue;
+    }
+}
+
+//Kattgång
+@keyframes walkDown {
+    from {
+        right: 0%;
+        top: 80%;
+    }
+    to {
+        right: 100%;
+        top: 80%;
     }
 }

@@ -21,6 +21,7 @@ function toggleNavMenu() {
     icon.classList.toggle("toggle");
 }
 
+//Function for click on shapes -> adds class which changes shapes.
 let triangleEl = document.querySelector('.triangle');
 let circleEl = document.querySelector('.circle');
 let squareEl = document.querySelector('.square');
