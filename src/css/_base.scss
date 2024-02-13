@@ -193,3 +193,26 @@ $dark-dusk-blue: #161c25;
       border-bottom: $height solid $bgcolor;
     }
 }
+
+//Rotera form
+@keyframes rotate-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes change-size {
+    50% {
+        width: 1px;
+        height: 1px;
+    }
+}
+
+@keyframes change-color {
+    50% {
+        border-bottom: 50px solid $powder-blue;
+    }
+}
