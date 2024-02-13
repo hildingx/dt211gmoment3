@@ -12,6 +12,17 @@ body {
     color: base.$light-black-text;
 }
 
+#bodyAnimation {
+    animation: bgTransition 3s linear infinite;
+}
+
+/* Stilar endast för Firefox */
+@supports (-moz-appearance: none) {
+    body {
+        @include base.bgcolorff();
+    }
+}
+
 @media (prefers-color-scheme:dark) {
     body {
         @include base.dark-bgcolor();
@@ -240,7 +251,7 @@ section {
 }
 
 .span-line {
-    @include base.center-content(none);
+    @include base.center-content(center);
     height: 1px;
     background-color: #000000;
     max-width: 1440px;
@@ -273,6 +284,7 @@ section {
 }
 
 footer {
+    position: relative;
     padding: 50px 0;
 
     p {

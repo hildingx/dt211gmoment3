@@ -9,28 +9,65 @@ $dark-white-text: darken($primary-white-text, 15%);
 
 $black-opac92: rgba($primary-black-text, 0.92);
 
+//Bgcolors
 $peachy-orange: #ffc987;
-$dark-peachy-orange: #634e35;
 $dusty-rose: #D8737F;
-$dark-dusty-rose: #4d292e;
 $soft-mauve: #AB6C82;
-$dark-soft-mauve: #3b262d;
 $grayish-lavender: #685D79;
-$dark-grayish-lavender: #2a2631;
 $dusk-blue: #475C7A;
+$powder-blue: #AEC6CF;
+
+//Darkmode bgcolors
+$dark-peachy-orange: #634e35;
+$dark-dusty-rose: #4d292e;
+$dark-soft-mauve: #3b262d;
+$dark-grayish-lavender: #2a2631;
 $dark-dusk-blue: #161c25;
 
-$powder-blue: #AEC6CF;
+@property --color-1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #ffc987;
+}
+
+@property --color-2 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #D8737F;
+}
+
+@property --color-3 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #AB6C82;
+}
+
+@property --color-4 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #685D79;
+}
+
+@property --color-5 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #475C7A;
+}
 
 //Shared background style
 @mixin shared-bg-styles {
     background-size: 100% auto; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
-  }
+}
   
 // Mixin background style light colour
 @mixin bgcolor() {
+    background: linear-gradient(to bottom, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
+    @include shared-bg-styles;
+}
+
+@mixin bgcolorff() {
     background: linear-gradient(to bottom, $peachy-orange, $dusty-rose, $soft-mauve, $grayish-lavender, $dusk-blue);
     @include shared-bg-styles;
 }
@@ -39,6 +76,24 @@ $powder-blue: #AEC6CF;
 @mixin dark-bgcolor() {
     background: linear-gradient(to bottom, $dark-peachy-orange, $dark-dusty-rose, $dark-soft-mauve, $dark-grayish-lavender, $dark-dusk-blue);
     @include shared-bg-styles;
+}
+
+@keyframes bgTransition {
+    10% {
+        --color-1: #e7b67a;
+    }
+    30% {
+        --color-2: #c96a75;
+    }
+    50% {
+        --color-3: #9c6377;
+    }
+    70% {
+        --color-4: #5b5269;
+    }
+    90% {
+        --color-5: #435774;
+    }
 }
 
 //Mixin center content
@@ -133,8 +188,8 @@ $powder-blue: #AEC6CF;
     } @else if $form == 'triangle' {
       width: 0;
       height: 0;
-      border-left: $width / 2 solid transparent;
-      border-right: $width / 2 solid transparent;
+      border-left: calc($width / 2) solid transparent;
+      border-right: calc($width / 2) solid transparent;
       border-bottom: $height solid $bgcolor;
     }
 }

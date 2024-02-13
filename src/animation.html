@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.scss">
 </head>
-<body>
+<body id="bodyAnimation">
     <header>
         <nav>
             <div id="navLinks">
@@ -29,11 +29,28 @@
             </button>
         </nav>
     </header>
-    <main>
+    <main class=mainAnimation>
+        <div class="shapes-container">
+            <span class="triangle"></span>
+            <span class="circle"></span>
+            <span class="square"></span>
+        </div>
+        <p>
+            Klicka på formerna.
+        </p>
+        <p>
+            Bakgrundsfärgen ändras i en loop om 5 sekunder.<br>
+            Jag hade en djärvare färgomväxling tidigare men det blev bara jobbigt för ögat så jag var tvungen att tona ner det. <br>
+            Så nu syns det knappt alls. Mycket jobb för ingenting. :&apos;&#41;
+        </p>
+        <div class="sass-img-div">
+            <img src="img/sass_pink.svg" class=sassImg alt="SASS-ikon">
+        </div>
         
     </main>
     <footer>
         <p>Alexander Hilding</p>
+        <div id="walking-cat">🐈</div>
     </footer>
 </body>
 </html>
