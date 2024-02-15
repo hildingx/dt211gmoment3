@@ -342,3 +342,13 @@ footer {
         @include base.center-content(center);
     }
 }
+
+//Styles för föräldraelement till stapeldiagram med 6 mest sökta kurserna
+#barChart {
+    width: 80%;
+    height: 80%;
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: 100px auto;
+    aspect-ratio: 2;
+}
