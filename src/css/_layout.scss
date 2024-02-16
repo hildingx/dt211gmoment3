@@ -347,13 +347,25 @@ footer {
 #barChart {
     width: 80%;
     max-width: 1000px;
-    margin: 100px auto;
+    margin: 150px auto;
     aspect-ratio: 2;
+
+    h1 {
+        text-align: center;
+        font-size: clamp(20px, 2vw, 32px);
+        margin-bottom: 50px;
+    }
 }
 
 #pieChart {
     width: 80%;
     max-width: 800px;
-    margin: auto;
+    margin: 150px auto;
     aspect-ratio: 1;
+
+    h1 {
+        text-align: center;
+        font-size: clamp(20px, 2vw, 32px);
+        margin-bottom: 50px;
+    }
 }
