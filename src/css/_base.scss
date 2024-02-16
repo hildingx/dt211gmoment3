@@ -228,3 +228,16 @@ $dark-dusk-blue: #161c25;
         top: 80%;
     }
 }
+
+@mixin chartStyles($max-width, $aspect-ratio) {
+    width: 80%;
+    max-width: $max-width;
+    margin: 150px auto;
+    aspect-ratio: $aspect-ratio;
+
+    h1 {
+        text-align: center;
+        font-size: clamp(20px, 2vw, 32px);
+        margin-bottom: 50px;
+    }
+}

@@ -343,29 +343,11 @@ footer {
     }
 }
 
-//Styles för föräldraelement till stapeldiagram med 6 mest sökta kurserna
+//Styles för föräldraelement till diagram
 #barChart {
-    width: 80%;
-    max-width: 1000px;
-    margin: 150px auto;
-    aspect-ratio: 2;
-
-    h1 {
-        text-align: center;
-        font-size: clamp(20px, 2vw, 32px);
-        margin-bottom: 50px;
-    }
+    @include base.chartStyles(1000px, 2);
 }
 
 #pieChart {
-    width: 80%;
-    max-width: 800px;
-    margin: 150px auto;
-    aspect-ratio: 1;
-
-    h1 {
-        text-align: center;
-        font-size: clamp(20px, 2vw, 32px);
-        margin-bottom: 50px;
-    }
+    @include base.chartStyles(800px, 1);
 }
