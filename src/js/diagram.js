@@ -8,7 +8,7 @@ async function fetchData() {
 
         return data;
     } catch (error) {
-        document.getElementById("barChart").innerHTML = `<p>Data kunde inte hämtas</p>`;
+        document.getElementById("diagrams").innerHTML = `<p>Data kunde inte hämtas</p>`;
     }
 }
 
@@ -33,41 +33,165 @@ async function displayTopCourses() {
     let courseNames = topCourses.map(course => course.name);
     let courseApplicants = topCourses.map(course => course.applicantsTotal);
 
+    //Funktion för att dela upp varje ord med mellanslag
+    function processCourseNames(courseNames) {
+        return courseNames.map(name => 
+            name.split(" ")
+        );
+    }
+    
+    let processedCourseNames = processCourseNames(courseNames);
+
     // Kör Chart.js-diagrammet med kursnamn och antal sökande
     new Chart(
-        document.getElementById('acquisitions'),
+        document.getElementById('barAcquisitions'),
         {
         type: 'bar',
-        options: {
-            animation: false,
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false
-              },
-              tooltip: {
-                enabled: false
-              }
-            }
-          },
         data: {
-            labels: courseNames,
+            labels: processedCourseNames,
             datasets: [{
-                label: '# of Applicants',
+                label: 'Totalt antal sökande',
                 data: courseApplicants,
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 205, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)'
+                ],
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: "black",
+                        font: {
+                            size: 14
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Totalt antal sökande',
+                        color: "black",
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: "black",
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+                }
+            },
+            animation: true,
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true,
+                    //Funktion för att ta bort ',' i tooltipen
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            let tooltipItem = tooltipItems[0];
+                            let originalLabel = tooltipItem.chart.data.labels[tooltipItem.dataIndex];
+                            return originalLabel.join(" ");
+                        }
+                    }
                 }
             }
         }
     });
 }
 
-window.onload = displayTopCourses;
+//Funktion som filtrerar ut program, sorterar efter sökande och slice'ar ut de 5 första.
+async function filterAndSortPrograms() {
+    const data = await fetchData();
 
+    let programs = data.filter(item => item.type === "Program");
+
+    programs.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
+
+    let topPrograms = programs.slice(0, 5);
+
+    return topPrograms;
+}
+
+//Funktion som skriver ut programmen i pajdiagram med chart.js
+async function displayTopPrograms() {
+    let topPrograms = await filterAndSortPrograms();
+
+    // Skapa arrays för programnamn och antal sökande
+    let programNames = topPrograms.map(program => program.name);
+    let programApplicants = topPrograms.map(program => program.applicantsTotal);
+    
+    // Kör Chart.js-diagrammet med programnamn och antal sökande
+    new Chart(
+        document.getElementById('pieAcquisitions'),
+        {
+        type: 'pie',
+        data: {
+            labels: programNames,
+            datasets: [{
+                label: 'Totalt antal sökande',
+                data: programApplicants,
+                borderWidth: 1,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 205, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(54, 162, 235, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)',
+                    'rgba(0, 0, 0, 0.4)'
+                ],
+            }]
+        },
+        options: {
+            animation: true,
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black',
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true
+                }
+            }
+        }
+    });
+}
+
+//Kör båda funktionerna vid sidans laddning
+window.onload = function() {
+    displayTopCourses();
+    displayTopPrograms();
+};
