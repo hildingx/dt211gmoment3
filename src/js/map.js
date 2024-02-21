@@ -54,12 +54,11 @@ async function initMap() {
 
                     // Ta bort tidigare sökmarkör om den finns
                     if (searchMarker) searchMarker.setMap(null);
-
-                    // Lägg till en ny markör baserat på sökresultatet
-                    searchMarker = new google.maps.Marker({
-                        position: place.geometry.location,
-                        map: map,
-                        title: place.name,
+                        // Lägg till en ny markör baserat på sökresultatet
+                        searchMarker = new google.maps.Marker({
+                            position: place.geometry.location,
+                            map: map,
+                            title: place.name,
                     });
                 } else {
                     console.error('No results found or error in search');
