@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animering - DT2011G - Moment 4</title>
+    <title>Google Maps - DT2011G - Moment 5</title>
     <script src="js/main.js" type="module"></script>
-    <script src="js/animation.js" type="module"></script>
+    <script src="js/map.js" type="module"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.scss">
 </head>
-<body id="body-animation">
+<body>
     <header>
         <nav>
             <div id="navLinks">
@@ -30,30 +31,18 @@
             </button>
         </nav>
     </header>
-    <main class=main-animation>
-        <div class="shapes-container">
-            <span class="triangle"></span>
-            <span class="circle"></span>
-            <span class="square"></span>
+    <main id="main-map">
+        <form id="search-form">
+            <input id="search-box" type="text" placeholder="Sök efter en plats...">
+            <button id="search-btn" type="submit">Sök</button>
+        </form>
+        <div id="map">
         </div>
-        <p>
-            Klicka på formerna.
-        </p>
-        <div class="div-box">
-            <p>
-                Bakgrundsfärgen ändras i en loop om 5 sekunder.<br>
-                Jag hade en djärvare färgomväxling tidigare men det blev bara jobbigt för ögat så jag var tvungen att tona ner det. <br>
-                Så nu syns det knappt alls. :&apos;&#41;
-            </p>
-        </div>
-        <div class="sass-img-div">
-            <img src="img/sass_pink.svg" class=sass-img alt="SASS-ikon">
-        </div>
-        
     </main>
     <footer>
         <p>Alexander Hilding</p>
-        <div id="walking-cat">🐈</div>
     </footer>
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set(["places"]),e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyAOlJRhQQ9UUci0coE1nk_W7fW_kYhwLT0", v: "weekly"});</script>
 </body>
 </html>

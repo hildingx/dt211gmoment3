@@ -3,6 +3,10 @@
 
 @use 'base';
 
+html {
+    height: 100%;
+}
+
 body {
     @include base.bgcolor();
     font-family: 'Roboto', sans-serif;
@@ -350,4 +354,47 @@ footer {
 
 #pieChart {
     @include base.chartStyles(800px, 1);
+}
+
+#main-map {
+    margin-top: 100px;
+}
+
+// Styla formuläret
+#search-form {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+//Inputfält
+#search-box {
+    width: 70%; 
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+//Sökknapp
+#search-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: base.$dusk-blue;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#search-btn:hover {
+    background-color: base.$dark-dusk-blue;
+}
+
+//Styles Google map
+#map {
+    height: 50vh;
+    width: 80%;
+    max-width: 1200px;
+    margin: 10px auto;
 }
